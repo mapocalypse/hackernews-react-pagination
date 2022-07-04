@@ -1,7 +1,7 @@
 # Hacker News Clone
 React application that consumes Hacker News API, with paging implementation.
 
-### JavaScript, React, ReactJS, API
+### HTML, JavaScript, React, ReactJS, API
 
 x-x-x
 
