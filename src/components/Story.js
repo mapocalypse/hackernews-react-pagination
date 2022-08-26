@@ -5,12 +5,17 @@ export function Story({storyId}) {
     const [story, setStory] = useState(null); //posso tbm inicializar a {}
 
     useEffect(() => {
-        getStory(storyId).then(data => setStory(data))
-    }, [storyId])
+        async function getData() {
+            const storyData = await getStory(storyId);
+            setStory(storyData);
+        }
+        getData();
+        //getStory(storyId).then(data => setStory(data))        
+    }, [storyId]);
 
     console.log("2:", story);
 
-    return story && story.url && (  
+    return story && story.url ? (  
         <div className="col-sm-8 my-2 offset-md-2">
         <div className="card">
             <div className="card-body">
@@ -19,5 +24,5 @@ export function Story({storyId}) {
             </div>
         </div>
         </div>
-    )
+    ) : <h5>Loading...</h5>
 }
